@@ -1,6 +1,5 @@
 import pytest
-import matlib
-
+import src.matlib as matlib
 class Test_Matlib:
     
     #Adition test 
