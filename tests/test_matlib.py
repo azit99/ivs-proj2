@@ -36,5 +36,53 @@ class Test_Matlib:
         assert matlib.Div(4, 2) == 2
         with pytest.raises(ZeroDivisionError):
             matlib.Div(2,0)
+    
+    #power test
+    def test_pow(self):
+        assert matlib.Pow(2,2) == 4
+        assert matlib.Pow(-10,2) == 100
+        assert matlib.Pow(2,10) == 1024
+        assert matlib.Pow(-3.2 , 5) == pytest.approx(-335.54432 , 10e-20)
+        assert matlib.Pow(10, 0) == 0
+        assert matlib.Pow(0.5, 4) == pytest.approx(0.0625, 10e-20)
+         
+         # zero pow of zero is undefined
+        with pytest.raises(ValueError):
+            matlib.Pow(0,0)
+    
+    #factorial test
+    def test_fact(self):
+        assert matlib.Fact(5) == 120
+        assert matlib.Fact(2) == 2    
+        assert matlib.Fact(0) == 1
+        assert matlib.Fact(8) == 40320
+       
+        # factorial is defined only for positive integers
+        with pytest.raises(ValueError):
+            matlib.Fact(0.123)
 
-######END OF FILE
+        with pytest.raises(ValueError):
+            matlib.Fact(-10)    
+
+    #root test
+    def test_sqroot(sefl):
+        assert matlib.Root(4, 2) == 2
+        assert matlib.Root(16, 4) == 2
+        assert matlib.Root(0.25, 2) == 0.5
+        assert matlib.Root(4, 2) == 2
+        assert matlib.Root(0,2) == 0
+        assert matlib.Root(10000,4) == 10
+        
+        #root of negative number is undefined
+        with pytest.raises(ValueError):
+            matlib.Root(-2,2)
+
+        with pytest.raises(ValueError):
+            matlib.Root(-2,5)
+
+        #0-th root is undefined
+        with pytest.raises(ValueError):
+            matlib.Root(4,0)
+                           
+
+#######################################################END OF FILE####################################
