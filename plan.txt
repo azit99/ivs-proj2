@@ -1,0 +1,38 @@
+Stanovené termíny: Návrh GUI : 21.3.2019
+                   Unit testy matematickej knižnice: 6.4.2019
+                   Matematická knižnica: 10.4.2019
+                   String parser: 12.4.2019
+                   GUI  finálna verzia: 12.4.2019
+                   Profiling 15.4.2019
+                   Dokumentácia 18.4.2019
+                   Mockup : 19.4.2019
+                   Inštalátor 20.4.2019
+                   Uživateľská dokumentácia 20.4.2019
+
+
+
+
+Rozdelenie úloh: GUI Samuel Dudík
+                 Matematická knižnica: Matej Otčenáš
+                 String parser: Adam Žitňanský
+                 Unit testy matematickej knižnice: Adam Žitňanský
+                 Profiling: Samuel Dudík
+                 Dokumentácia: všetci
+                 Mockup: Lívia Žitňanská
+                 Inštalátor: Matej Otčenáš
+                 Uživateľská dokumentácia: Lívia Žitňanská
+                 
+             
+Komunikačné kanály:
+                    Facebook
+                    Osobné strtnutia podľa potreby (minimálne 1x/ týždeň)
+
+Použité technológie: programovací jazyk : Python 3
+                     tvorba GUI: Qt
+
+Správa verzii: 
+               GIT 
+               hosting: github.com
+               url repozitára: https://github.com/azit99/ivs-proj2
+               Bolo udelené oprávnenie pre účet ivskontrola.
+
