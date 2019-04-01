@@ -35,7 +35,7 @@ class Test_Matlib:
         assert matlib.div(-5 , -2) == 2.5
         assert matlib.div(4, 2) == 2
         assert matlib.div(1000000, 50) == 20000
-        assert matlib.div(-10, 5.5) == pytest.approx(1.818181818, 10e-10)
+        assert matlib.div(-10, 5.5) == pytest.approx(1.8181818181818181, 10e-10)
         assert matlib.div(1, 0.001) == 1000
         
         with pytest.raises(ZeroDivisionError):
