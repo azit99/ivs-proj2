@@ -1,5 +1,5 @@
 import pytest
-import src.matlib as matlib
+import src.math_lib as matlib
 
 class Test_Matlib:
     
@@ -94,7 +94,7 @@ class Test_Matlib:
             matlib.fact(-10)    
 
     #root test
-    def test_sqroot(sefl):
+    def test_root(self):
         assert matlib.root(4, 2) == 2
         assert matlib.root(16, 4) == 2
         assert matlib.root(0.25, 2) == 0.5

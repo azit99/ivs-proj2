@@ -16,7 +16,8 @@
 =======================================================================================
 
 """
-
+import math
+import traceback
 
 ## @brief Documentation for math library
 # @file math_lib.py
@@ -27,130 +28,126 @@
 # @details The list of operations is here: addition, substraction, multiplying, dividing,
 # factorial, squaring, modulo, absolute value
 
-class Math_Library (object):    
    
     ## Adds two numbers \b a , \b b
     # @param a first number
     # @param b second number
     # @return addition of two numbers
-    def add(self, a, b):      
-        return a + b
+def add(a, b):      
+    return a + b
 
         
     ## Substracts two numbers \b a , \b b
     # @param a first number
     # @param b second number
     # @return substraction of two numbers  
-    def sub(self, a, b):
-        return a - b
+def sub(a, b):
+    return a - b
 
         
     ## Multiplies two numbers \b a , \b b
     # @param a first number
     # @param b second number
     # @return multiplication of two numbers   
-    def mul(self, a, b):
-        return a * b
+def mul(a, b):
+    return a * b
 
         
     ## Divides two numbers \b a , \b b
     # @param a first number
     # @param b second number
     # @return division of two numbers \b a / \b b or \a None if second number is 0    
-    def div(self, a, b):
-        if b == 0:
-            return None
-
-        else:
-            return a / b
+def div(a, b):
+    try:
+        return float(a) / float(b)
+    except:
+        raise
 
 
     ## Does a factorial
     # @param a first and only number
     # @return factorial of number \b a or \a None if number is negative
-    def fact(self, a):
-        if (a == 0) or (a == 1):
-            return 1
-
-        elif a < 0:
-            return None
-
-        else:
-            factorial = 1
-            for i in range(1, a + 1):
-                factorial = factorial * i
-            return factorial
+def fact(a):
+    try:
+        for i in range(1, a + 1):
+            factorial = factorial * i
+        return factorial
+    except:
+        raise
 
         
     ## Squares number \b a to \b e
     # @param a first number
     # @param e second number
     # @return squared number \b a or \a None if second number is negative
-    def pow(self, a, e):
-        if e == 0:
+def pow(a, e):
+    try:
+        if e == 0 and a == 0:
+            raise ValueError
+
+        elif e == 0:
             return 1
 
         elif e == 1:
             return a
 
         elif e < 0:
-            return None
+            raise ValueError
 
         else:
-            return a ** int(e)
+            return float (a ** int(e))
+    except:
+        raise
 
         
     ## Squares number \b a to \b 2
     # @param a first and only number
     # @return squared number \b a      
-    def pow2(self, a):
-        return a ** 2
+def pow2(a):
+    return a ** 2
 
         
     ## Squares number \b a to \b 3
     # @param a first and only number
     # @return squared number \b a  
-    def pow3(self, a):
-        return a ** 3
+def pow3(a):
+    return a ** 3
 
         
     ## Squares root of number \b a
-    # @param a first and only number
+    # @param a first number
+    # @param b second number
     # @return squared to root number \b a or \a None if number is negative
-    def sqrt(self, a):
-        if a > 0:
-            return a ** 0.5
-
-        else:
-            return None
+def root(a, b):
+    if a >= 0:
+        return a**(b**-1)
+    else:
+        raise ValueError
 
        
     ## Negates number \b a
     # @param a first and only number
     # @return negated number \b a      
-    def negative(self, a):
-        return -a
+def negative(a):
+    return -a
 
         
     ## Does modulo of numbers \b a \a mod \b b 
     # @param a first number
     # @param b second number
     # @return remainder of number \b a or \a None if second number is 0
-    def mod(self, a, b):
-        if b == 0:
-            return None
-
-        else:
-            return a % b
+def mod(a, b):
+    if b == 0:
+        return None
+    else:
+        return a % b
 
         
     ## Does absolute value of number \b a 
     # @param a first and only number
     # @return absolute value of number \b a    
-    def abs(self, a):
-        if a < 0:
-            return -a
-
-        else:
-            return a
-
+def abs(a):
+    if a < 0:
+        return -a
+    else:
+        return a
