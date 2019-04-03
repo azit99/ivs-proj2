@@ -82,7 +82,7 @@ class Test_Matlib:
         assert matlib.fact(0) == 1
         assert matlib.fact(8) == 40320
         assert matlib.fact(10) == 3628800
-
+	#FIXME --> test does not cause overflow
         with pytest.raises(OverflowError):
             matlib.fact(100)
        
