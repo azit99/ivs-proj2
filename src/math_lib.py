@@ -119,8 +119,8 @@ def pow3(a):
     # @param b second number
     # @return squared to root number \b a or \a None if number is negative
 def root(a, b):
-    if a >= 0:
-        return a**(b**-1)
+    if a >= 0 and b != 0:
+        return a**(b**(-1))
     else:
         raise ValueError
 
