@@ -23,6 +23,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.btnComma.clicked.connect(self.btnCommaClicked)
         self.btnEquals.clicked.connect(self.btnEqualsClicked)
 
+        self.btnClear.clicked.connect(self.btnClearClicked)
+        self.btnBack.clicked.connect(self.btnBackClicked)
+        self.btnExponentiation.clicked.connect(self.btnExponentiationClicked)
+        self.btnRoot.clicked.connect(self.btnRootClicked)
+        self.btnFactorial.clicked.connect(self.btnFactorialClicked)
+        self.btnModulo.clicked.connect(self.btnModuloClicked)
+
     def btnOneClicked(self):
         self.display.setText(self.display.text() + "1")
 
@@ -60,16 +67,34 @@ class MainWindow(QtWidgets.QMainWindow):
         self.display.setText(self.display.text() + "−")
 
     def btnDivisionClicked(self):
-        self.display.setText(self.display.text() + "/")
+        self.display.setText(self.display.text() + "÷")
 
     def btnMultiplicationClicked(self):
-        self.display.setText(self.display.text() + "*")
+        self.display.setText(self.display.text() + "×")
 
     def btnCommaClicked(self):
-        self.display.setText(self.display.text() + ",")
+        self.display.setText(self.display.text() + ".")
 
     def btnEqualsClicked(self):
         print("process with string parser")
+
+    def btnClearClicked(self):
+        self.display.setText("")
+
+    def btnBackClicked(self):
+        self.display.setText(self.display.text()[:-1])
+
+    def btnExponentiationClicked(self):
+        self.display.setText(self.display.text() + "^")
+
+    def btnRootClicked(self):
+        self.display.setText(self.display.text() + "√")
+
+    def btnFactorialClicked(self):
+        self.display.setText(self.display.text() + "!")
+
+    def btnModuloClicked(self):
+        self.display.setText(self.display.text() + "%")
 
 
 if __name__ == "__main__":
