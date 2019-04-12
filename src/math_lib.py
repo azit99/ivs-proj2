@@ -69,7 +69,7 @@ def div(a, b):
     # @return factorial of number \b a or \a None if number is negative
 def fact(a):
     try:
-         if a < 0:
+        if a < 0:
             raise ValueError
 
         elif isinstance(a, float):
