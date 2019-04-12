@@ -1,6 +1,16 @@
 import re
 import math_lib as math
 
+# @file expresion_eval.py
+# @author Adam Žitňanský
+
+## @package expresion_eval
+# @brief This package evaluates expresions given as strings
+
+
+## Evaluates the given string expression with the correct operations precedence
+    # @param input the string to be evaluated
+    # @return the definitive value of the string expresion or errror message
 def EvaluateStrExp(input):
     input = prepString(input)
 
