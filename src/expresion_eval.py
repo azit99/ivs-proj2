@@ -38,19 +38,34 @@ def calcBinary(a,b,operator):
     elif operator == "×":
         return math.mul(a,b)
     elif operator == "÷":
-        return math.div(a,b)
+        try:
+            return math.div(a,b)
+        except Exception as e:
+             return e
     elif operator == "√":
-        return math.root(b,a)
+        try:
+            return math.root(b,a)
+        except Exception as e:
+             return e
     elif operator == "^":
-        return math.pow(a,b)
+        try:
+            return math.pow(a,b)
+        except Exception as e:
+             return e
     elif operator == "%":
-        return math.mod(a,b)
+        try:
+            return math.div(a,b)
+        except Exception as e:
+             return e
 
 def calcUnary(a,operator):
     if operator == "!":
-        return math.fact(a)
+        try:
+            return math.fact(a)
+        except Exception as e:
+             return e
 
 def prepString(input):
-    input=input.replace("−", "-")
-    input=input.replace("--", "+")
+    input=input.replace("−", "-")  #replace minus character from gui with oficial one to avoid conversion problems
+    input=input.replace("--", "+") #repalce double minus with plus
     return input
