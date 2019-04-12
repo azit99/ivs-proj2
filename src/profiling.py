@@ -21,10 +21,6 @@ arithmetic_mean = math.mul(math.div(1, n), sum(numbers))
 # n * (arithmetic_mean ^ 2)
 subtrahend = math.mul(n, math.pow(arithmetic_mean, 2))
 
-# factor = 0
-# for number in numbers:
-#     factor += math.sub(math.pow(number, 2), subtrahend)
-
 # sum(xi ^ 2)
 minuend = 0
 for number in numbers:
