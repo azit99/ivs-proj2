@@ -69,9 +69,17 @@ def div(a, b):
     # @return factorial of number \b a or \a None if number is negative
 def fact(a):
     try:
-        for i in range(1, a + 1):
-            factorial = factorial * i
-        return factorial
+         if a < 0:
+            raise ValueError
+
+        elif isinstance(a, float):
+            raise ValueError
+            
+        else:
+            factorial = 1
+            for i in range(1, a + 1):
+                factorial = factorial * i
+            return factorial
     except:
         raise
 
