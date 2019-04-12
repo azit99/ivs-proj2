@@ -1,5 +1,4 @@
-import math_lib as math
-# import expresion_eval as expeval
+from expresion_eval import EvaluateStrExp as evalexp
 
 ## @file profiling.py
 # @author Samuel Dudík
@@ -15,23 +14,23 @@ numbers = list(map(int, numbers))
 
 n = len(numbers)
 
-# (1 / n) * sum(xi, n)
-arithmetic_mean = math.mul(math.div(1, n), sum(numbers))
+# (1 / n) * sum(xi)
+arithmetic_mean = evalexp("1÷{}×{}".format(str(n), sum(numbers)))
 
 # n * (arithmetic_mean ^ 2)
-subtrahend = math.mul(n, math.pow(arithmetic_mean, 2))
+subtrahend = evalexp("{}×{}^2".format(n, arithmetic_mean))
 
 # sum(xi ^ 2)
 minuend = 0
 for number in numbers:
-    minuend += math.pow(number, 2)
+    minuend += float(evalexp("{}^2".format(number)))
 
-factor = minuend - subtrahend
+factor = evalexp("{}-{}".format(minuend, subtrahend))
 
 # 1 / (n - 1)
-quotient = math.div(1, math.sub(n, 1))
+quotient = evalexp("1÷{}".format(evalexp("{}-1".format(n))))
 
 # √(quotient * factor)
-standard_deviation = math.root(math.mul(quotient, factor), 2)
+standard_deviation = evalexp("2√{}".format(evalexp("{}×{}".format(quotient, factor))))
 
 print(standard_deviation)
