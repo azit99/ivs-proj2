@@ -8,11 +8,50 @@ import math_lib as math
 # @brief This package evaluates expresions given as strings
 
 
-## Evaluates the given string expression with the correct operations precedence
+## Evaluates the given string expression with the correct operations precedence (with parentheses support)
     # @param input the string to be evaluated
     # @return the definitive value of the string expresion or errror message
-def EvaluateStrExp(input):
-    input = prepString(input)
+
+def EvaluateStrExp(expresion):
+    expresion = prepString(expresion)
+
+    #check parenthneses
+    if not ParenthnesesPaired(expresion):
+        return "Parentheses should be paired!"
+
+    #while there is a parenthes in expresion
+    while expresion.find("(") != -1  or expresion.find(")")!=-1:
+        #Parentheses indexes
+        opening =-1
+        closing =-1
+
+        for i in range (len(expresion)):
+            if expresion[i] == '(':
+                 #check if parentheses are in corect order
+                if closing != -1:
+                    return "Wrong parentheses usage"
+                opening=i
+
+            if expresion[i] == ')':
+                #check if parentheses are in corect order
+                if opening == -1:
+                    return "Wrong parentheses usage"
+                closing = i
+
+                #substitute parentheses content with it's value
+                expresion = expresion.replace(expresion[opening:closing+1], EvalSimpleExp(expresion[opening+1:closing]), 1)
+                break
+
+    #now its just simple expr. without parentheses so it can be evaluated
+    expresion = prepString(expresion)
+    return EvalSimpleExp(expresion)
+
+######################################### Internal functions #################################
+
+## Flowing funtions are just for internal use and shouldn't be called directly when using the module.
+
+## Evaluates value of expresion w/o parenthneses
+def EvalSimpleExp(input):
 
     operationsRgx =[
         "(-*\d+\.?\d*)([\\' \!\ \'])", #factorial
@@ -78,4 +117,13 @@ def calcUnary(a,operator):
 def prepString(input):
     input=input.replace("−", "-")  #replace minus character from gui with oficial one to avoid conversion problems
     input=input.replace("--", "+") #repalce double minus with plus
+    input=input.replace("++", "+") #repalce double minus with plus
     return input
+
+#check if there is same amount of opening and closing parentheses
+def ParenthnesesPaired(expr):
+    if expr.count('(') == expr.count(')'):
+        return True
+    else:
+        return False
+############################################## End of file #######################################
