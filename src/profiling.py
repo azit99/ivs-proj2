@@ -9,7 +9,7 @@ import random
 # False = expects input on stdin; True = will randomly generate input based on the rest of settings
 profiling = False
 # number of randomly generated numbers used as input
-profiling_amount = 1000
+profiling_amount = 10
 # upper and lower limit for randomly generated numbers
 profiling_lower = 1
 profiling_upper = 1000
@@ -19,7 +19,6 @@ numbers = []
 if profiling:
     for _ in range(profiling_amount):
         numbers.append(random.randint(profiling_lower, profiling_upper))
-    print(numbers)
 else:
     input_string = input()
     # remove whitespaces and split string into array of numbers
@@ -31,22 +30,13 @@ else:
 n = len(numbers)
 
 # (1 / n) * sum(xi)
-arithmetic_mean = evalexp("1÷{}×{}".format(str(n), sum(numbers)))
-
-# n * (arithmetic_mean ^ 2)
-subtrahend = evalexp("{}×{}^2".format(n, arithmetic_mean))
+arithmetic_mean = evalexp("1÷{}×{}".format(n, sum(numbers)))
 
 # sum(xi ^ 2)
 minuend = 0
 for number in numbers:
     minuend += float(evalexp("{}^2".format(number)))
 
-factor = evalexp("{}-{}".format(minuend, subtrahend))
-
-# 1 / (n - 1)
-quotient = evalexp("1÷{}".format(evalexp("{}-1".format(n))))
-
-# √(quotient * factor)
-standard_deviation = evalexp("2√{}".format(evalexp("{}×{}".format(quotient, factor))))
+standard_deviation = evalexp("2√(1÷({}-1)×({}-{}×{}^2))".format(n, minuend, n, arithmetic_mean))
 
 print(standard_deviation)
