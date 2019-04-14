@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
+from expresion_eval import EvaluateStrExp as evalexp
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -22,13 +23,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.btnMultiplication.clicked.connect(self.btnMultiplicationClicked)
         self.btnComma.clicked.connect(self.btnCommaClicked)
         self.btnEquals.clicked.connect(self.btnEqualsClicked)
-
-        self.btnClear.clicked.connect(self.btnClearClicked)
         self.btnBack.clicked.connect(self.btnBackClicked)
         self.btnExponentiation.clicked.connect(self.btnExponentiationClicked)
         self.btnRoot.clicked.connect(self.btnRootClicked)
         self.btnFactorial.clicked.connect(self.btnFactorialClicked)
         self.btnModulo.clicked.connect(self.btnModuloClicked)
+        self.btnParenthesisRight.clicked.connect(self.btnParenthesisRightClicked)
+        self.btnParenthesisLeft.clicked.connect(self.btnParenthesisLeftClicked)
+        self.btnClear.clicked.connect(self.btnClearClicked)
 
     def btnOneClicked(self):
         self.display.setText(self.display.text() + "1")
@@ -76,10 +78,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.display.setText(self.display.text() + ".")
 
     def btnEqualsClicked(self):
-        print("process with string parser")
-
-    def btnClearClicked(self):
-        self.display.setText("")
+        self.display.setText(evalexp(self.display.text()))
 
     def btnBackClicked(self):
         self.display.setText(self.display.text()[:-1])
@@ -95,6 +94,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def btnModuloClicked(self):
         self.display.setText(self.display.text() + "%")
+
+    def btnParenthesisLeftClicked(self):
+        self.display.setText(self.display.text() + "(")
+
+    def btnParenthesisRightClicked(self):
+        self.display.setText(self.display.text() + ")")
+
+    def btnClearClicked(self):
+        self.display.setText("")
 
 
 if __name__ == "__main__":
