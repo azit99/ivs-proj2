@@ -103,7 +103,7 @@ def calcBinary(a,b,operator):
              return e
     elif operator == "%":
         try:
-            return math.div(a,b)
+            return math.mod(a,b)
         except Exception as e:
              return e
 
