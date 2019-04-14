@@ -9,7 +9,7 @@ import random
 # False = expects input on stdin; True = will randomly generate input based on the rest of settings
 profiling = False
 # number of randomly generated numbers used as input
-profiling_amount = 10
+profiling_amount = 10000
 # upper and lower limit for randomly generated numbers
 profiling_lower = 1
 profiling_upper = 1000
@@ -21,9 +21,8 @@ if profiling:
         numbers.append(random.randint(profiling_lower, profiling_upper))
 else:
     input_string = input()
-    # remove whitespaces and split string into array of numbers
-    input_string = input_string.replace(" ", "")
-    numbers = input_string.split(",")
+    # split string into array of numbers
+    numbers = input_string.split()
     # convert array of input "numbers" from strings to numbers
     numbers = list(map(int, numbers))
 
