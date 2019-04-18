@@ -1,6 +1,13 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from expresion_eval import EvaluateStrExp as evalexp
 
+helpMessage = """<center><b>How to use Tractorator</b></center>
+<ul>
+<li>Click on buttons to create expression</li>
+<li>Click on '=' button to calculate expression</li>
+<li>The result will be displayed in the text box located above the buttons</li>
+</ul>"""
+
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -28,9 +35,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.btnRoot.clicked.connect(self.btnRootClicked)
         self.btnFactorial.clicked.connect(self.btnFactorialClicked)
         self.btnModulo.clicked.connect(self.btnModuloClicked)
-        self.btnParenthesisRight.clicked.connect(self.btnParenthesisRightClicked)
+        self.btnParenthesisRight.clicked.connect(
+            self.btnParenthesisRightClicked)
         self.btnParenthesisLeft.clicked.connect(self.btnParenthesisLeftClicked)
         self.btnClear.clicked.connect(self.btnClearClicked)
+        self.actionHelp.triggered.connect(self.menuHelpClicked)
 
     def btnOneClicked(self):
         self.display.setText(self.display.text() + "1")
@@ -103,6 +112,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def btnClearClicked(self):
         self.display.setText("")
+
+    def menuHelpClicked(self):
+        msgBox = QtWidgets.QMessageBox()
+        msgBox.setIcon(QtWidgets.QMessageBox.Information)
+        msgBox.setText(helpMessage)
+        msgBox.setWindowTitle("Help")
+        msgBox.setTextFormat(1)
+        msgBox.setStandardButtons(QtWidgets.QMessageBox.Close)
+        msgBox.exec()
 
 
 if __name__ == "__main__":
