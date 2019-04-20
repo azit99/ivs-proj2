@@ -13,6 +13,9 @@ import math_lib as math
     # @return the definitive value of the string expresion or errror message
 
 def EvaluateStrExp(expresion):
+    if TooMuchOperators(expresion):
+        return "Invalid Expression"
+
     expresion = prepString(expresion)
 
     #check parenthneses
@@ -38,14 +41,23 @@ def EvaluateStrExp(expresion):
                     return "Wrong parentheses usage"
                 closing = i
 
+                #check for vslid operators before current subexpr
+                if not ParenthesHasOperation(expresion, opening, closing):
+                    return "Invalid expression"
+
                 #substitute parentheses content with it's value
                 expresion = expresion.replace(expresion[opening:closing+1], EvalSimpleExp(expresion[opening+1:closing]), 1)
                 break
 
     #now its just simple expr. without parentheses so it can be evaluated
     expresion = prepString(expresion)
-    return EvalSimpleExp(expresion)
+    output= EvalSimpleExp(expresion)
 
+    #check output before return
+    if InvalidOutput(output):
+        return "Invalid expression"
+    else:
+        return output
 ######################################### Internal functions #################################
 
 ## Flowing funtions are just for internal use and shouldn't be called directly when using the module.
@@ -126,4 +138,31 @@ def ParenthnesesPaired(expr):
         return True
     else:
         return False
+
+def ParenthesHasOperation(expr, begin, end):
+    operators="+-%^×÷√"
+    #expresion in parenthnrses is on the beginning so no operator before needed
+    if begin == 0:
+        return True
+
+    if expr[begin-1] == '(':
+        return True
+
+    if begin-2 >= 0 and expr[begin-1] == "!" and operators.find(expr[begin-2]) !=-1 :
+        return True
+
+    if operators.find(expr[begin-1]) !=-1:
+        return True
+
+    return False
+
+def TooMuchOperators(expr):
+    if re.search (r'(\+\+\+|\−\−\−|\^\^|\%\%|\×\×|\√\√|\×\×|\÷\÷|\!\!)',expr) is not None :
+        return True
+def InvalidOutput(output):
+    #if there is operator left(+- is okey) expresion was invalid(operator and operands mismatch)
+    if re.search (r'(\^|\%|\×|\√|\×|\÷|\!)',output) is not None :
+        return True
+    return False
+
 ############################################## End of file #######################################
