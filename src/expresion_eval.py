@@ -1,18 +1,18 @@
+## @package expresion_eval
+# String parsing package for calculator
+# This package is build to handle string expression evaluation for purpose of processing input of calcalator.
+# @author Adam Žitňanský
+
 import re
 import math_lib as math
 
-# @file expresion_eval.py
-# @author Adam Žitňanský
-
-## @package expresion_eval
-# @brief This package evaluates expresions given as strings
-
-
-## Evaluates the given string expression with the correct operations precedence (with parentheses support)
-    # @param input the string to be evaluated
-    # @return the definitive value of the string expresion or errror message
-
+    ## evaluates string expressio
+    # This functon is a interface function for this module. It evaluates given string. It implements parsing of operators, evaluating subexpressions in correct operators precedence and
+    # it also supports expression with parentnesses
+    # @param expresion String expresion for evaluation
+    # @return Value of expression or in case of error error message will be returned
 def EvaluateStrExp(expresion):
+
     if TooMuchOperators(expresion):
         return "Invalid Expression"
 
@@ -60,9 +60,9 @@ def EvaluateStrExp(expresion):
         return output
 ######################################### Internal functions #################################
 
-## Flowing funtions are just for internal use and shouldn't be called directly when using the module.
+# Flowing funtions are just for internal use and shouldn't be called directly when using the module.
 
-## Evaluates value of expresion w/o parenthneses
+# Evaluates value of expresion w/o parenthneses
 def EvalSimpleExp(input):
 
     operationsRgx =[
@@ -159,6 +159,7 @@ def ParenthesHasOperation(expr, begin, end):
 def TooMuchOperators(expr):
     if re.search (r'(\+\+\+|\−\−\−|\^\^|\%\%|\×\×|\√\√|\×\×|\÷\÷|\!\!)',expr) is not None :
         return True
+
 def InvalidOutput(output):
     #if there is operator left(+- is okey) expresion was invalid(operator and operands mismatch)
     if re.search (r'(\^|\%|\×|\√|\×|\÷|\!)',output) is not None :
