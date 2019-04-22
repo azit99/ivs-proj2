@@ -1,16 +1,18 @@
-## @package expresion_eval
-# String parsing package for calculator
-# This package is build to handle string expression evaluation for purpose of processing input of calcalator.
-# @author Adam Žitňanský
-
 import re
 import math_lib as math
 
-    ## evaluates string expressio
-    # This functon is a interface function for this module. It evaluates given string. It implements parsing of operators, evaluating subexpressions in correct operators precedence and
-    # it also supports expression with parentnesses
-    # @param expresion String expresion for evaluation
-    # @return Value of expression or in case of error error message will be returned
+## @brief This module is buid to evaluate calculator input
+# @file expresion_eval.py
+# @author Adam Žitňanský
+
+## @package expression_evaluation
+# @brief This module evaluates string expressions
+# @details The module supports expressions with support of parentnesses
+# and operations precedence
+
+## Evaluates expression \b expression
+# @param expression string expression to be evaluated
+# @return value of the expression
 def EvaluateStrExp(expresion):
 
     if TooMuchOperators(expresion):
@@ -58,11 +60,13 @@ def EvaluateStrExp(expresion):
         return "Invalid expression"
     else:
         return output
-######################################### Internal functions #################################
 
+ #Internal functions
 # Flowing funtions are just for internal use and shouldn't be called directly when using the module.
 
-# Evaluates value of expresion w/o parenthneses
+## Evaluates value of expresion w/o parenthneses
+# @param input Expression w/o parentnesses to be evalueated
+# @return Value of the expression
 def EvalSimpleExp(input):
 
     operationsRgx =[
@@ -91,6 +95,11 @@ def EvalSimpleExp(input):
             match = re.search(operationRgx,input)
     return input
 
+## Call math library function based on operator (for binary operators)
+# @param a First operand
+# @param b Second operand
+# @param operator Operator character
+# @return result of the operation
 def calcBinary(a,b,operator):
     if operator == "+":
         return math.add(a,b)
@@ -119,6 +128,10 @@ def calcBinary(a,b,operator):
         except Exception as e:
              return e
 
+## Call math library function based on operator (for unary operators)
+# @param a First and only operand
+# @param operator Operator character
+# @return result of the operation
 def calcUnary(a,operator):
     if operator == "!":
         try:
@@ -126,19 +139,29 @@ def calcUnary(a,operator):
         except Exception as e:
              return e
 
+## Prepares string for evaluating method
+# @param iput Expression which need to be prepared
+# @return expression ready for evaluation
 def prepString(input):
     input=input.replace("−", "-")  #replace minus character from gui with oficial one to avoid conversion problems
     input=input.replace("--", "+") #repalce double minus with plus
     input=input.replace("++", "+") #repalce double minus with plus
     return input
 
-#check if there is same amount of opening and closing parentheses
+##Check if there is same amount of opening and closing parentheses
+# @param expr Expresion to check for corect parentnesses
+# @return True if parentnesses are paired, False if they aren't
 def ParenthnesesPaired(expr):
     if expr.count('(') == expr.count(')'):
         return True
     else:
         return False
 
+##Check if parentnesses are conected with correct operators
+# @param expr Expression to be chacked
+# @param begin index of currently evaluated opening perentness
+# @param end index of currently evaluated closing parentness
+# @return true if is correctly conected with operators else false
 def ParenthesHasOperation(expr, begin, end):
     operators="+-%^×÷√"
     #expresion in parenthnrses is on the beginning so no operator before needed
@@ -156,14 +179,20 @@ def ParenthesHasOperation(expr, begin, end):
 
     return False
 
+##Check if expression contains too much operators
+# @param expr Expression to be chacked
+# @return True if has too much operators else false
 def TooMuchOperators(expr):
     if re.search (r'(\+\+\+|\−\−\−|\^\^|\%\%|\×\×|\√\√|\×\×|\÷\÷|\!\!)',expr) is not None :
         return True
 
+##checks if there is operator left in output what indictes wrong nuber of operands
+# @param output Output to be checked
+# @return true if there is operator left else false
 def InvalidOutput(output):
     #if there is operator left(+- is okey) expresion was invalid(operator and operands mismatch)
     if re.search (r'(\^|\%|\×|\√|\×|\÷|\!)',output) is not None :
         return True
     return False
 
-############################################## End of file #######################################
+# End of file
