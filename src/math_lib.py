@@ -72,10 +72,10 @@ def fact(a):
         if a.is_integer():
             a=int(a)
         else:
-            raise ValueError
+            raise ValueError('fact parameter must be integer')
     try:
         if a < 0:
-            raise ValueError
+            raise ValueError('fact parameter must be positive')
         else:
             a=int(a)
             factorial = 1
@@ -132,7 +132,7 @@ def root(a, b):
     if a >= 0 and b != 0:
         return a**(b**(-1))
     else:
-        raise ValueError
+        raise ValueError('invalid parameter for root')
 
 
 ## Negates number \b a
