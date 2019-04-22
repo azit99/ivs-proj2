@@ -19,7 +19,7 @@
 import math
 import traceback
 
-## @brief Documentation for math library
+## @brief This library works with basic arithmetic operations
 # @file math_lib.py
 # @author Matej Otcenas
 
@@ -29,34 +29,34 @@ import traceback
 # factorial, squaring, modulo, absolute value
 
 
-    ## Adds two numbers \b a , \b b
-    # @param a first number
-    # @param b second number
-    # @return addition of two numbers
+## Adds two numbers \b a , \b b
+# @param a first number
+# @param b second number
+# @return addition of two numbers
 def add(a, b):
     return a + b
 
 
-    ## Substracts two numbers \b a , \b b
-    # @param a first number
-    # @param b second number
-    # @return substraction of two numbers
+## Substracts two numbers \b a , \b b
+# @param a first number
+# @param b second number
+# @return substraction of two numbers
 def sub(a, b):
     return a - b
 
 
-    ## Multiplies two numbers \b a , \b b
-    # @param a first number
-    # @param b second number
-    # @return multiplication of two numbers
+## Multiplies two numbers \b a , \b b
+# @param a first number
+# @param b second number
+# @return multiplication of two numbers
 def mul(a, b):
     return a * b
 
 
-    ## Divides two numbers \b a , \b b
-    # @param a first number
-    # @param b second number
-    # @return division of two numbers \b a / \b b or \a None if second number is 0
+## Divides two numbers \b a , \b b
+# @param a first number
+# @param b second number
+# @return division of two numbers \b a / \b b or \a None if second number is 0
 def div(a, b):
     try:
         return float(a) / float(b)
@@ -64,9 +64,9 @@ def div(a, b):
         raise
 
 
-    ## Does a factorial
-    # @param a first and only number
-    # @return factorial of number \b a or \a None if number is negative
+## Does a factorial
+# @param a first and only number
+# @return factorial of number \b a or \a None if number is negative
 def fact(a):
     if isinstance(a, float):
         if a.is_integer():
@@ -86,10 +86,10 @@ def fact(a):
         raise
 
 
-    ## Squares number \b a to \b e
-    # @param a first number
-    # @param e second number
-    # @return squared number \b a or \a None if second number is negative
+## Squares number \b a to \b e
+# @param a first number
+# @param e second number
+# @return squared number \b a or \a None if second number is negative
 def pow(a, e):
     try:
         if e == 0 and a == 0:
@@ -110,24 +110,24 @@ def pow(a, e):
         raise
 
 
-    ## Squares number \b a to \b 2
-    # @param a first and only number
-    # @return squared number \b a
+## Squares number \b a to \b 2
+# @param a first and only number
+# @return squared number \b a
 def pow2(a):
     return a ** 2
 
 
-    ## Squares number \b a to \b 3
-    # @param a first and only number
-    # @return squared number \b a
+## Squares number \b a to \b 3
+# @param a first and only number
+# @return squared number \b a
 def pow3(a):
     return a ** 3
 
 
-    ## Squares root of number \b a
-    # @param a first number
-    # @param b second number
-    # @return squared to root number \b a or \a None if number is negative
+## Squares root of number \b a
+# @param a first number
+# @param b second number
+# @return squared to root number \b a or \a None if number is negative
 def root(a, b):
     if a >= 0 and b != 0:
         return a**(b**(-1))
@@ -135,17 +135,17 @@ def root(a, b):
         raise ValueError
 
 
-    ## Negates number \b a
-    # @param a first and only number
-    # @return negated number \b a
+## Negates number \b a
+# @param a first and only number
+# @return negated number \b a
 def negative(a):
     return -a
 
 
-    ## Does modulo of numbers \b a \a mod \b b
-    # @param a first number
-    # @param b second number
-    # @return remainder of number \b a or \a None if second number is 0
+## Does modulo of numbers \b a \a mod \b b
+# @param a first number
+# @param b second number
+# @return remainder of number \b a or \a None if second number is 0
 def mod(a, b):
     if b == 0:
         return None
@@ -153,9 +153,9 @@ def mod(a, b):
         return a % b
 
 
-    ## Does absolute value of number \b a
-    # @param a first and only number
-    # @return absolute value of number \b a
+## Does absolute value of number \b a
+# @param a first and only number
+# @return absolute value of number \b a
 def abs(a):
     if a < 0:
         return -a
