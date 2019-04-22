@@ -105,7 +105,7 @@ def pow(a, e):
             raise ValueError
 
         else:
-            return float (a ** int(e))
+            return float (a ** e)
     except:
         raise
 
