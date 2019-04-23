@@ -28,20 +28,20 @@ requirements:
 #packs project
 pack: doc createfolder xzitna02_xzitna03_xdudik01_xotcen01.zip
 xzitna02_xzitna03_xdudik01_xotcen01.zip:
-	rm -rf ../../xzitna02_xzitna03_xdudik01_xotcen01/repo/install
+	rm -rf ../../xzitna02_xzitna03_xdudik01_xotcen01/repo/installer
 	rm -rf ../../xzitna02_xzitna03_xdudik01_xotcen01/repo/doc	
 	cd ../.. && zip -r $@ xzitna02_xzitna03_xdudik01_xotcen01
 	
 createfolder:
 	mkdir -p ../../xzitna02_xzitna03_xdudik01_xotcen01/repo
-	mkdir ../../xzitna02_xzitna03_xdudik01_xotcen01/install
+	mkdir ../../xzitna02_xzitna03_xdudik01_xotcen01/installer
 	mkdir ../../xzitna02_xzitna03_xdudik01_xotcen01/doc
 	cp -a ../../ivs-proj2/. ../../xzitna02_xzitna03_xdudik01_xotcen01/repo/
 	cp -a ../doc/. ../../xzitna02_xzitna03_xdudik01_xotcen01/doc/
-	cp -a ../install/. ../../xzitna02_xzitna03_xdudik01_xotcen01/install/
+	cp -a ../installer/. ../../xzitna02_xzitna03_xdudik01_xotcen01/installer/
 
 #remove unnecesary files
 clean: 
-	rm -rf ../install/usr/ ../install/ ../../xzitna02_xzitna03_xdudik01_xotcen01
+	rm -rf ../installer/usr/ ../installer/ ../../xzitna02_xzitna03_xdudik01_xotcen01
 
 
