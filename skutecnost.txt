@@ -1,0 +1,8 @@
+Traktoristi xzitna02 xzitna03 xdudik01 xotcen01
+
+- Some deadlines weren't met on time mainly because of other school projects.
+- The team work wasn't as easy as we expected. Sometimes there were some minor comunication problems which caused
+  the workflow to slow down a bit.
+- Also there were some bug fixes committed after the deadline
+- We had problems with installer creation and because of that, the installer was finally done right before
+  the official deadline of the project.

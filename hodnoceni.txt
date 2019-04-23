@@ -1,0 +1,4 @@
+xzitna02 100 (Expression evaluation module, math library tests)
+xzitna03 100 (Mockup, User manual)
+xdudik01 100 (profiling, GUI)
+xotcen01 100 (math library, installer)
