@@ -1,0 +1,6 @@
+Package: tractorator-calculator
+Version: 1.0
+Maintainer: Tractorator
+Architecture: all
+Description: Simple GUI Calculator
+Depends: python3-pip
