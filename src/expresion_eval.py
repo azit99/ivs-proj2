@@ -4,8 +4,6 @@ import math_lib as math
 ## @brief This module is buid to evaluate calculator input
 # @file expresion_eval.py
 # @author Adam Žitňanský
-
-## @package expression_evaluation
 # @brief This module evaluates string expressions
 # @details The module supports expressions with support of parentnesses
 # and operations precedence
