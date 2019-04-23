@@ -1,9 +1,0 @@
-Profiling protocol
-
-Tools used:
-cProfile - for profiling
-gprof2dot.py - convert profiling output into a dot graph
-
-Profiling was performed 3 times in total. Different input values were used each time - 10, 100 and 1000 randomly generated numbers. Random seed was set to a constant number (100) to prevent randomness from interfering with profiling results.
-
-By basic analysis of the graphs we clearly see that our program spends by far the most time on the function that parses and evaluates string expressions. The more numbers we input, the more time it takes to process. This was expected. What wasn't was that the processing of parenthesis required very little processing time. Everything was focused on the Python regular expressions library. To be more exact, mainly the search function. This leaves us with little to no space for optimisation as we don't expect to create a more efficient regular expressions library than the one already built into Python.
