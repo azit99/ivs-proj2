@@ -7,8 +7,12 @@ all:
 
 #runs the calculator
 run: 
-	python3 gui.py	
-	
+	python3 gui.py
+
+#runs profiling
+profile:
+	python3 profiling.py
+
 #generate documentation
 doc:
 	doxygen Doxyfile
