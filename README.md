@@ -5,12 +5,12 @@ Simple calculator with GUI written in python 3
 ## Getting Started
 
 1. Clone repo
-2. open terminal in src folder
-3. install requirements
+2. Open terminal in src folder
+3. Install requirements
 ```
 make requirements
 ```
-4. run the calculator
+4. Run the calculator
 ```
 make
 ```
